@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This exercise is designed to test your ability to use object-oriented design principles, data structures and standard algorithms to craft a small application in language of your choice that can be utilized by another developer with little to no fuss. We will not only be looking at the correctness of your solution but at the style of your code, its modularity and extensibility as well as the ease at which the whole package can be built and tested. As a small team we believe these principles are a key element of our continued success. 
+This exercise is designed to test your ability to use object-oriented design principles, data structures and standard algorithms to craft a small application.  We will not only be looking at the correctness of your solution but at the style of your code, its modularity, its extensibility, and ease at which the whole package can be built and tested.  As a small team we believe these principles are a key element of our continued success. 
 
-The problem itself is not arbritary but meant to simulate the type of work you would be doing here at Datafiniti. The transformation of unstructured data into structured data (what we do all day but you knew that already) involves parsing, computationaly intensive algorithmic techniques and ultimately some method of presenting that data in a human and machine digestable format to our customers.
+The problem itself is not arbritary but meant to simulate the type of work you would be doing here at Datafiniti. The transformation of unstructured data into structured data involves parsing, computationaly intensive algorithmic techniques and ultimately some method of presenting that data in a human and machine digestable format to our customers.
 
 Have fun, be creative and ask questions! 
 
@@ -21,8 +21,6 @@ The extracted data must contain at least the following fields:
 * Price
 * Shipping Weight
 * ISBN-10
-
-Though it is recommended to try to pull out as much data as you can (Bonus points for gathering additional fields).
 
 After extracting this information you will need to divide these twenty books into N boxes for shipping with each box having no more than ten pounds of books.
 
@@ -55,15 +53,20 @@ Once your solution is completed please add an EXTENSIONS.txt file to your soluti
 2. Products beyond just simply books.
 3. Parse and ship 2,000,000 books (in a reasonably time frame; e.g., polynomial time) instead of merely 20.
 
-To begin fork this repository to your personal Github account. Your 2 week time limit begins once you fork this repository.
+To begin fork this repository to your personal Github account. We ask that you submit your solution within 2 weeks of forking the repo.
 
 ## Submission Requirements
 
-* Any OS is fine.
-* Any language is fine. 
-* You may use any third party libraries you wish, however, all dependencies must be fully managed by a standard build tool for the language used.
-* You must follow standard Object Oriented Design principles and techniques (e.g., submissions with only a single class will not be accepted).
-* Submit a pull request to this repository when you are ready to share your solution (please include only the source code and gradle build scripts).
+* Any language is fine.
+* You may use any third party libraries you wish. Any dependencies must be fully managed by a standard build tool for the language used.
+* You must follow standard Object Oriented Design principles and techniques (e.g., submissions with only a single class are not worthy).
+* Submit a pull request to this repository when you are ready to share your solution.
+
+## What We'll Be Looking For
+
+* Code readability and reusability (how "productized" your code is)
+* Practical and sensible use of third-party code
+* The computational efficiency of your sorting algorithm
 
 ## Obtaining Help
 
