@@ -9,7 +9,7 @@ describe Scraper::Amazon do
   end
   it 'gets the title of an item from an amazon page' do
 
-    title = @scraper.get_title("#btAsinTitle")
+    title = @scraper.get_title
     expect(title).to eq("Zealot: The Life and Times of Jesus of Nazareth [Hardcover]")
     expect(title).to be_a(String)
   end
@@ -19,6 +19,7 @@ describe Scraper::Amazon do
 
     @scraper.page = Nokogiri::HTML(open('data/book2.html'))
     author2 = @scraper.get_author
+    
     expect(author2).to eq("David S Cohen")
 
     @scraper.page = Nokogiri::HTML(open('data/book3.html'))

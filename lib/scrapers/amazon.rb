@@ -5,14 +5,17 @@ module Scraper
 
       @page = Nokogiri::HTML(open(page))
     end
-    def get_title(selector)
-      title = @page.css(selector).text
+    def get_title
+      title = @page.css("#btAsinTitle").text
     end
 
     def get_author
-      author = page.css(".buying").css("span").css("a").children.first.text
-      # \[{1}.+\] REGEX TO FIND AUTHOR IN META TAG
-      # /\[{1}.+\]/.match(page.css('meta')[1].attributes["content"].value).to_s
+      author_text = /\[{1}.+\]/.match(page.css('meta')[1].attributes["content"].value).to_s
+      author = author_text[1...author_text.length - 1]
+      if author.include? ","
+        author = author.split(",")[0]
+      end
+      return author
     end
 
     def get_price
@@ -20,7 +23,8 @@ module Scraper
     end
 
     def get_isbn_10
-      isbn_10 = page.css('.p13n-session').first.attributes["data-pageid"].value
+      nodes = page.css('b')
+      isbn_10 = nodes.find {|node| node.text == "ISBN-10:"}.next_sibling.text.lstrip
     end
 
     def get_shipping_weight
