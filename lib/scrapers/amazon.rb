@@ -23,5 +23,11 @@ module Scraper
       isbn_10 = page.css('.p13n-session').first.attributes["data-pageid"].value
     end
 
+    def get_shipping_weight
+      nodes = page.css('b')
+      shipping_weight_text = nodes.find {|node| node.text == "Shipping Weight:"}.parent.text
+      shipping_weight = /\d+\.{1}\d+\s(pounds)/.match(shipping_weight_text).to_s
+    end
+
   end
 end

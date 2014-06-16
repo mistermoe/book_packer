@@ -61,6 +61,19 @@ describe Scraper::Amazon do
   end
 
   it 'gets the shipping weight from an amazon page' do
-    
+    shipping_weight = @scraper.get_shipping_weight
+    expect(shipping_weight).to eq("1.2 pounds")
+
+    @scraper.page = Nokogiri::HTML(open('data/book2.html'))
+    shipping_weight2 = @scraper.get_shipping_weight
+    expect(shipping_weight2).to eq("3.2 pounds")
+
+    @scraper.page = Nokogiri::HTML(open('data/book3.html'))
+    shipping_weight2 = @scraper.get_shipping_weight
+    expect(shipping_weight2).to eq("6.4 pounds")
+
+    @scraper.page = Nokogiri::HTML(open('data/book17.html'))
+    shipping_weight3 = @scraper.get_shipping_weight
+    expect(shipping_weight3).to eq("8.8 pounds")
   end
 end
