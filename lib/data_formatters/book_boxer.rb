@@ -9,7 +9,16 @@ module DataFormatter
 
 			boxes_json = JSON.pretty_generate(boxes_hash)
 
-			return boxes_json
+			data_file = File.open("boxes.json", "w")
+
+			boxes_json_to_write = boxes_json.split("\n")
+
+			boxes_json_to_write.each do |line|
+				data_file.write(line)
+				data_file.write("\n")
+			end
+
+			data_file.close
 		end
 
 		def self.scrape_books(data)
