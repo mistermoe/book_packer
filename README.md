@@ -30,6 +30,8 @@ The extracted data must contain at least the following fields:
 * Shipping Weight
 * ISBN-10
 
+
+
 After extracting this information you will need to divide these twenty books into N boxes for shipping with each box having no more than ten pounds of books.
 
 Your application should ouput its results in a valid and well structured JSON document like the example below:
