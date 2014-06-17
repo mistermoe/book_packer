@@ -5,14 +5,14 @@
 
 2. How would you handle products beyond just simply books?
 
-  This is where the Item Module comes into play. I wanted the items used for this coding challenge to be reusable and decoupled entirely from the Amazon scraper. The items are only used as containers, so if you wanted items beyond books or boxes, you could just create a class for the item. Rewriting the initialize method for these items is not needed unless you want to overrite it. All items are meant to inherit from the generic item class.
+  This is where the Item Module comes into play. I wanted the items used for this coding challenge to be reusable and decoupled entirely from the Amazon scraper. The items are only used as containers, so if you wanted items beyond books or boxes, you could just create a class for the item. Rewriting the initialize method for these items is not needed unless you want to overwrite it. All items are meant to inherit from the generic item class.
 
 3. How would you deal with parssing and shipping 2,000,000 books (in a reasonably time frame; e.g., polynomial time) instead of merely 20?
 
-    This was the funnest part of the coding challenge. It intoduced me to the bin-packing problem and i had a lot of fun with it. I had no idea Math PhD's focus their study on just this problem! I used something similar to the first-fit solution. It's not very taxing (regarding speed) but also does not guarantee the least amount of boxes. In fact, it only guarantees 2x the least number of boxes at the very worst. I would want something pretty fast in order to deal with 2,000,000 books.
+    This was the most fun part of the coding challenge. It introduced me to the bin-packing problem and I had a lot of fun with it. I had no idea Math PhD's focus their study on just this problem! I used something similar to the first-fit solution. It's not very taxing (regarding speed) but also does not guarantee the least amount of boxes. In fact, it only guarantees 2x the least number of boxes at the very worst. I would want something pretty fast in order to deal with 2,000,000 books.
 
-    I can't help but admit that i'm definitely going to keep working on the bin-packing problem even though i'm done with this coding challenge.
+    I can't help but admit that I'm definitely going to keep working on the bin-packing problem even though i'm done with this coding challenge.
 
     I've thought of a solution along these lines:
 
-      sort the books from heaviest to lightest. Split the books into 2 piles. Box the heavy pile first. Now on to the light list. For each light book, check to see if it will fit in any of the pre-existing boxes, if not, make a new box. This way i can atleast try to fit the little space left in the boxes that have just enough room left for small books.
+      sort the books from heaviest to lightest. Split the books into 2 piles. Box the heavy pile first. Now on to the light list. For each light book, check to see if it will fit in any of the pre-existing boxes, if not, make a new box. This way I can atleast try to fit the little space left in the boxes that have just enough room left for small books.
