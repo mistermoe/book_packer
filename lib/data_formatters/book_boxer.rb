@@ -1,11 +1,20 @@
 module DataFormatter
 	class BookBoxer
-		def run(data)
+		def self.run(data)
+			books = scrape_books(data)
+
+			boxes = pack_books(books)
+
+			boxes_hash = as_hash(boxes)
+
+			boxes_json = JSON.pretty_generate(boxes_hash)
+
+			return boxes_json
 		end
 
 		def self.scrape_books(data)
 			books = []
-			
+
 			data.each do |datum|
 				params = {}
 				scraper = Scraper::Amazon.new(datum)
@@ -25,14 +34,22 @@ module DataFormatter
 
 		def self.pack_books(books)
 			boxes = [Box.new]
-			sorted_books = books.sort_by{|book| book.get_weight}
-			sorted_books.each do |book|				
+			sorted_books = books.sort_by{|book| -book.get_weight}
+			sorted_books.each do |book|
 				if boxes.last.weight + book.get_weight >= 10
 					boxes << Box.new
 				end
-				boxes.last.add_book(book)
-			end	
+				boxes.last.add_book(book.as_hash, book.shipping_weight)
+			end
 			return boxes
+		end
+
+		def self.as_hash(boxes)
+			boxes_hash = {}
+			for i in (0...boxes.length)
+				boxes_hash[i] = boxes[i].as_hash
+			end
+			return boxes_hash
 		end
 	end
 end

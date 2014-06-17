@@ -11,7 +11,7 @@ describe "Box" do
 
 	it 'adds a book to the box and adjusts the weight accordingly' do
 	  book = Book.new(title: "Oscar Meyer Wieners", shipping_weight: "2.26 pounds")
-	  @box.add_book(book)
+	  @box.add_book(book, book.shipping_weight)
 	  expect(@box.books.first.title).to eq("Oscar Meyer Wieners")
 	  expect(@box.books.count).to eq(1)
 	  expect(@box.weight).to eq(2.26)
